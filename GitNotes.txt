@@ -1,0 +1,8 @@
+Git (Hub)
+Git Commands and explanation 
+git status
+Tells us what has changed since our last commit 
+git add ______
+Adds a file (______) to the staging area of git
+We can check to see this worked by then doing a “git status” command
+git commit -m “COMMIT MESSAGE”
