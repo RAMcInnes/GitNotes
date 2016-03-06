@@ -3,6 +3,8 @@ Git Commands and explanation
 git status
 Tells us what has changed since our last commit 
 git add ______
-Adds a file (______) to the staging area of git
+Adds a file (______) to the Staging Area of git
 We can check to see this worked by then doing a “git status” command
 git commit -m “COMMIT MESSAGE”
+Commits all the files in the Staging Area
+Adds a message (“COMMIT MESSAGE”) to go along with the commit
