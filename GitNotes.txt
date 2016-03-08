@@ -1,10 +1,113 @@
-Git (Hub)
+Git
 Git Commands and explanation 
+git help
+Shows list of git commands
+Can also do “git help ____” for details on a specific command 
+git init
+Creates an empty Git Repository or reinitializes an existing one 
 git status
 Tells us what has changed since our last commit 
 git add ______
 Adds a file (______) to the Staging Area of git
 We can check to see this worked by then doing a “git status” command
+Different “git add” :
+git add <list of files> : Adds the list of files
+git add —all : Adds all files
+git add *.txt : Adds all txt files in current directory 
+git add docs/*.txt : Adds all txt files in “docs” directory
+git add docs/ : Adds all files in “docs” directory
+git add “ *.txt ” : Adds all txt files in while project
 git commit -m “COMMIT MESSAGE”
 Commits all the files in the Staging Area
-Adds a message (“COMMIT MESSAGE”) to go along with the commit
+“-m” Adds a message (“COMMIT MESSAGE”) to go along with the commit
+“-a” Adds file to Staging Area AND commits it at the same time [I THINK g?]
+git commit —amend -m “NEW COMMIT MESSAGE”
+Adds files in Staging Area to the last commit 
+git diff
+Shows differences in file(s) since last commit 
+git diff —staged
+Shows the differences in all the items within the Staging Area
+git reset HEAD <filename>
+This will “unstage” the file (filename) within the Staging Area
+“HEAD” = Last commit on current branch
+git reset —soft HEAD^
+Most recent committed files go back into Staging Area / Revert commit
+“soft” = reset into Staging Area
+“^” = move to commit before HEAD
+git reset —hard HEAD^
+Removes last commit and all changes associated with that commit 
+git checkout — <filename>
+Blows away all changes in file (filename) since last commit 
+It is important here to add “—“, otherwise we would be switching to a branch
+git remote add <name> <address>
+Creates a new remote
+“add” = add new remote
+“name” = our name for this remote
+“address” = address of remote (https://…)
+git remote rm <name>
+Removes remote with name “name”
+git remote -v
+Lists all repositories your current machine has access to 
+Name : Address
+git remote show <remoteName>
+Shows all remote branches and whether they’re tracked or not
+Shows local branches and which branches they merge with
+Shows local branches configured for “git push”
+git remote prune <remoteName>
+Removes any references to branches that no longer exist
+Good to do every once in a while to keep repository clean
+git push -u <name> <branch>
+updates repository with committed files
+“name” = remote repository name
+“branch” = branch to push to (usually master)
+git push <remoteName> <name>
+Creates a remote branch with name “name” on remote “remoteName”
+git push <remoteName> :<name>
+Deletes remote branch
+NOTE: Does not delete local branch “name”
+git pull
+Gets changes from local repository and adds them to your repository 
+Syncs up local and remote repositories 
+git fetch
+Similar to “git pull”, but doesn’t merge different branches
+git clone <URL>
+Clones repository at address “URL”
+Checks out initial branch (most likely master) and sets it as the HEAD
+We can add a name to the end of the command to give the clone a local name
+Ex) git clone https://… local-Repo
+git branch 
+Shows what branch you are currently on
+git branch -r
+Shows all remote branches
+git branch <name>
+Creates branch “name”
+get branch -d <name>
+Deletes branch “name”
+git checkout <name>
+Moves from current branch to branch “name”
+Any “commits” and “adds”
+get checkout -b <name>
+Creates AND Checkouts branch “name”
+git merge <name>
+Merges the contents of the current branch with the contents of branch “name”
+If changes were made on both branches trying to be merged, they will be merged and then a commit will happen
+git tag
+Shows all tags
+git tag -a <tagName>
+Creates a new tag, “tagName
+git push —tags
+Pushes tags
+git checkout <tag>
+Checks out “tag”
+git rebase 
+Moves all changes on current branch that are not on <branch> to a temp area
+Runs all <branch> commits
+Runs all temp area (current branch) commits, ONE AT A TIME
+No Merge Commits 
+Should run “git fetch” before this
+git rebase —continue
+When conflicted files have been resolved
+git rebase —skip
+Skip over committing conflicted file
+git rebase —abort
+Checkout original branch and stop rebase
